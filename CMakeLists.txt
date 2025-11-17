@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.13)
 project(libdatachannel
-	VERSION 0.23.2
+	VERSION 0.24.0
 	LANGUAGES CXX)
 set(PROJECT_DESCRIPTION "C/C++ WebRTC network library featuring Data Channels, Media Transport, and WebSockets")
 
@@ -466,7 +466,7 @@ else()
 	target_compile_definitions(datachannel PRIVATE USE_NICE=0)
 	target_compile_definitions(datachannel-static PRIVATE USE_NICE=0)
 	if(USE_SYSTEM_JUICE)
-		find_package(LibJuice REQUIRED)
+		find_package(LibJuice 1.7.0 REQUIRED)
 		target_compile_definitions(datachannel PRIVATE RTC_SYSTEM_JUICE=1)
 		target_compile_definitions(datachannel-static PRIVATE RTC_SYSTEM_JUICE=1)
 		target_link_libraries(datachannel PRIVATE LibJuice::LibJuice)
