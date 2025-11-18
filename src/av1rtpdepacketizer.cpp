@@ -145,21 +145,19 @@ message_vector AV1RtpDepacketizer::buildFrame(std::vector<message_ptr>::iterator
 	bool lastMarker = lastPktHeader->marker();
 
 	// RFC 9106 states the Marker bit (M) MUST be set on the last packet of a frame/temporal unit.
-	if (!lastMarker) {
+	if (!lastMarker || !foundEnd) {
 		// return {} if M=0, discarding partial frame.
 		return {};
 	}
 
 	// Although the E bit is often used, the M bit is mandated by the RFC for the frame boundary.
 	// If you want to strictly require E=1 on the last packet, uncomment the following:
-	/*
 	// Re-parse the last packet to check the E bit
 	AV1NalUnit lastNal{binary((last-1)->get()->begin() + lastPktHeader->getSize() +
 	lastPktHeader->getExtensionHeaderSize(), (last-1)->get()->end())}; lastNal.parseDescriptor();
 	if(!lastNal.isEndOfFrame()) {
 	    return {};
 	}
-	*/
 
 	// Normal return
 	message_vector out;
