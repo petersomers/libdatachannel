@@ -140,8 +140,8 @@ set(LIBDATACHANNEL_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/include/rtc/h265rtppacketizer.hpp
 	${CMAKE_CURRENT_SOURCE_DIR}/include/rtc/h265rtpdepacketizer.hpp
 	${CMAKE_CURRENT_SOURCE_DIR}/include/rtc/h265nalunit.hpp
-	${CMAKE_CURRENT_SOURCE_DIR}/include/rtc/av1nalunit.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/include/rtc/av1rtpdepacketizer.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/include/rtc/av1nalunit.hpp
+	${CMAKE_CURRENT_SOURCE_DIR}/include/rtc/av1rtpdepacketizer.hpp
 	${CMAKE_CURRENT_SOURCE_DIR}/include/rtc/av1rtppacketizer.hpp
 	${CMAKE_CURRENT_SOURCE_DIR}/include/rtc/rtcpnackresponder.hpp
 	${CMAKE_CURRENT_SOURCE_DIR}/include/rtc/utils.hpp
