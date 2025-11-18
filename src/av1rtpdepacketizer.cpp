@@ -11,7 +11,7 @@ namespace rtc {
 
 // The 'incoming' function remains essentially identical, as it handles
 // generic RTP buffering, timestamp grouping, and sequence number checking.
-void AV1RtpDepacketizer::incoming(message_vector &messages, const message_callback &) {
+void AV1RtpDepacketizer::incoming(message_vector &messages, const message_callback &cb) {
 	// ... (Use the VP8RtpDepacketizer::incoming code here, it is general) ...
 
 	// Move all non-control messages into mRtpBuffer
@@ -88,6 +88,7 @@ message_vector AV1RtpDepacketizer::buildFrame(std::vector<message_ptr>::iterator
 	binary frameData;
 	// In AV1, we track the 'S' (Start) and 'E' (End) bits from the payload descriptor
 	bool foundStart = false;
+	bool foundEnd = false;
 
 	for (auto it = first; it != last; ++it) {
 		auto &pkt = *it;
