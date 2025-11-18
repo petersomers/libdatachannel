@@ -67,7 +67,6 @@ struct VP8PayloadDescriptorExtensionByte {
 // (or partial frame) plus its RTP "payload descriptor" bits.
 struct VP8NalUnit : public NalUnit {
 public:
-	// Match your H265NalUnit style:
 	VP8NalUnit() : NalUnit(NalUnit::Type::VP8) {}
 	VP8NalUnit(size_t size, bool includingHeader = true)
 		: NalUnit(size, includingHeader, NalUnit::Type::VP8) {}
