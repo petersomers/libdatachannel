@@ -1,5 +1,8 @@
 #pragma once
-#include "rtc/message.hpp"
+
+#if RTC_ENABLE_MEDIA
+
+#include "common.hpp"
 #include <vector>
 #include <cstddef>
 #include <cstdint>
@@ -65,3 +68,5 @@ public:
 };
 
 } // namespace rtc
+
+#endif /* RTC_ENABLE_MEDIA */

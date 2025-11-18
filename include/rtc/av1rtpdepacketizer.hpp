@@ -1,13 +1,13 @@
 #pragma once
+#if RTC_ENABLE_MEDIA
+
 #include "common.hpp"
 #include "mediahandler.hpp"
 #include "message.hpp"
-#include "rtp.hpp"
-#include "av1nalunit.hpp"
 
 namespace rtc {
 
-class AV1RtpDepacketizer : public MediaHandler {
+class RTC_CPP_EXPORT AV1RtpDepacketizer : public MediaHandler {
 public:
 	static constexpr uint32_t ClockRate = 90000; // 90 kHz for video
 
@@ -31,3 +31,5 @@ private:
 };
 
 } // namespace rtc
+
+#endif // RTC_ENABLE_MEDIA
